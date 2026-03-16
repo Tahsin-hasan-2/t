@@ -139,15 +139,11 @@
         }
 
         /* --- MOBILE NAVIGATION --- */
-        .mobile-nav {
-            display: none;
-        }
+        /* --- MOBILE NAVIGATION --- */
+        .mobile-nav { display: none; }
 
         @media (max-width: 768px) {
-
-            nav {
-                display: none !important;
-            }
+            nav { display: none !important; }
 
             .mobile-nav {
                 display: block !important;
@@ -166,40 +162,12 @@
                 height: 60px;
             }
 
-            .m-left,
-            .m-right {
-                flex: 1;
-            }
+            .m-left, .m-right { flex: 1; }
+            .m-center { flex: 1; text-align: center; }
+            .m-right { display: flex; justify-content: flex-end; }
 
-            .m-center {
-                flex: 1;
-                text-align: center;
-            }
-
-            .m-right {
-                display: flex;
-                justify-content: flex-end;
-            }
-
-            .mobile-bismillah {
-                color: #fbbf24;
-                font-weight: bold;
-                font-size: 1.2rem;
-                margin: 0;
-                padding: 0;
-            }
-
-            .hamburger {
-                background: none;
-                border: none;
-                color: #fbbf24;
-                font-size: 1.8rem;
-                cursor: pointer;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                align-items: center;
-            }
+            .mobile-bismillah { color: #fbbf24; font-weight: bold; font-size: 1.2rem; margin: 0; padding: 0; }
+            .hamburger { background: none; border: none; color: #fbbf24; font-size: 1.8rem; cursor: pointer; padding: 0; margin: 0; display: flex; align-items: center;}
 
             #mobile-menu-list {
                 display: none;
@@ -213,27 +181,14 @@
                 width: 100%;
             }
 
-            #mobile-menu-list.show {
-                display: block;
-            }
-
-            #mobile-menu-list li a {
-                color: white;
-                text-decoration: none;
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            }
-
-            .mobile-sub-menu {
-                background-color: #043a2c;
-                display: none;
-                list-style: none;
-                padding: 0;
-                padding-left: 20px;
-            }
+            #mobile-menu-list.show { display: block; }
+            #mobile-menu-list li a { color: white; text-decoration: none; display: block; padding: 15px 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+            .mobile-sub-menu { background-color: #043a2c; display: none; list-style: none; padding: 0; padding-left: 20px; }
         }
 
+        /* --- PAGE CONTENT --- */
+        .header { border: 2px solid #d4af37; background: url('k.jpg') center/cover; border-radius: 20px; padding: 40px 20px; width: 90%; max-width: 1000px; margin: 20px auto; color: white; text-align: center; font-size: 3rem; font-weight: bold; }
+        .master-container { max-width: 1000px; margin: 40px auto; padding: 30px; background-color: white; border: 1.5px solid #d4af37; border-radius: 15px; }
         /* Hero Section */
         header {
             text-align: center;
@@ -375,6 +330,25 @@
         <!-- <p>&copy; 2026 Misbah All Rights Researved</p> -->
         <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
     </footer>
+    <script>
+function toggleMobileMenu() {
+    var menu = document.getElementById('mobile-menu-list');
+    menu.classList.toggle('show');
+}
+function toggleMobileSub(e) {
+    e.preventDefault();
+    var sub = document.getElementById('mobile-sub');
+    sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
+}
+window.onclick = function(event) {
+    if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
+        var menu = document.getElementById('mobile-menu-list');
+        if (menu.classList.contains('show')) {
+            menu.classList.remove('show');
+        }
+    }
+}
+</script>
 
 </body>
 
