@@ -17,10 +17,10 @@
             min-height: 100vh;
         }
 
-        /* --- DESKTOP NAVIGATION (Default) --- */
-        nav {
+        /* --- DESKTOP NAVIGATION --- */
+        .desktop-nav {
             background-color: #064e3b;
-            padding: 0.8rem 1.5rem;
+            padding: 10px 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -28,22 +28,22 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            /* Height removed to allow content to fit */
         }
 
         .nav-left, .nav-right { flex: 1; }
         .nav-center { flex: 2; text-align: center; }
-        .nav-right ul { justify-content: flex-end; }
 
         .logo { color: #fbbf24; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
         .bismillah { color: #fbbf24; font-weight: bold; margin: 0; font-size: 1.2rem; }
 
-        nav ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
-        nav ul li { margin-left: 15px; position: relative; padding: 10px 0; }
-        nav ul li a { 
+        .desktop-nav ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; justify-content: flex-end; }
+        .desktop-nav ul li { margin-left: 15px; position: relative; }
+        .desktop-nav ul li a { 
             color: white; text-decoration: none; padding: 8px 18px; 
             border-radius: 40px; font-weight: 500; transition: 0.3s; 
         }
-        nav ul li a:hover, nav ul li a.active { background-color: #d4af37; color: #064e3b; }
+        .desktop-nav ul li a:hover, .desktop-nav ul li a.active { background-color: #d4af37; color: #064e3b; }
 
         /* Desktop Dropdown */
         .dropdown-menu {
@@ -55,20 +55,19 @@
             min-width: 180px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             z-index: 1001;
-            overflow: hidden;
         }
         .dropdown:hover .dropdown-menu { display: block; }
         .dropdown-menu li { width: 100%; margin: 0; }
-        .dropdown-menu li a { border-radius: 0; padding: 12px 20px; display: block; }
+        .dropdown-menu li a { border-radius: 0 !important; padding: 12px 20px !important; display: block; }
 
-        /* --- MOBILE NAVIGATION (Hidden on Desktop) --- */
-        .mobile-nav { display: none; }
+        /* --- MOBILE NAVIGATION --- */
+        .mobile-nav { display: none; } /* Hidden on desktop */
 
         @media (max-width: 768px) {
-            nav { display: none !important; } /* Hide Desktop Nav */
+            .desktop-nav { display: none !important; } /* Force hide desktop */
 
             .mobile-nav {
-                display: block;
+                display: block !important; /* Force show mobile */
                 background-color: #064e3b;
                 position: sticky;
                 top: 0;
@@ -80,7 +79,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px 20px;
+                padding: 12px 20px;
             }
 
             .hamburger {
@@ -95,7 +94,7 @@
             .mobile-bismillah-bar {
                 background-color: #043a2c;
                 text-align: center;
-                padding: 8px 0;
+                padding: 10px 0;
                 border-top: 1px solid rgba(212, 175, 55, 0.2);
             }
 
@@ -129,7 +128,7 @@
         /* --- PAGE CONTENT --- */
         .header {
             border: 2px solid #d4af37;
-            background-color: #064e3b; /* Using green as fallback if k.jpg is missing */
+            background-color: #064e3b;
             background: url('k.jpg') center/cover;
             border-radius: 20px;
             padding: 40px 20px;
@@ -164,7 +163,7 @@
 
 <body>
 
-    <nav>
+    <nav class="desktop-nav">
         <div class="nav-left">
             <a href="/index.html" class="logo">মিসবাহ</a>
         </div>
@@ -192,7 +191,7 @@
             <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
         </div>
         <div class="mobile-bismillah-bar">
-            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+            <p class="bismillah">بسم الله </p>
         </div>
         <ul id="mobile-menu-list">
             <li><a href="index.html">প্রচ্ছদ</a></li>
@@ -223,11 +222,16 @@
 
     <script>
         function toggleMobileMenu() {
-            document.getElementById('mobile-menu-list').classList.toggle('show');
+            var menu = document.getElementById('mobile-menu-list');
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
         }
         function toggleMobileSub(e) {
             e.preventDefault();
-            const sub = document.getElementById('mobile-sub');
+            var sub = document.getElementById('mobile-sub');
             sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
         }
     </script>
