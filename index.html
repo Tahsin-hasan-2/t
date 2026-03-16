@@ -80,8 +80,8 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 12px 15px;
-                height: 50px;
+                padding: 0 15px;
+                height: 60px;
             }
 
             /* 3. Layout Fixes */
@@ -89,8 +89,8 @@
             .m-center { flex: 1; text-align: center; }
             .m-right { display: flex; justify-content: flex-end; }
 
-            .mobile-bismillah { color: #fbbf24; font-weight: bold; font-size: 1.2rem; margin: 0; white-space: nowrap; }
-            .hamburger { background: none; border: none; color: #fbbf24; font-size: 1.8rem; cursor: pointer; padding: 0; }
+            .mobile-bismillah { color: #fbbf24; font-weight: bold; font-size: 1.2rem; margin: 0;padding: 0; line-height: 1; }
+            .hamburger { background: none; border: none; color: #fbbf24; font-size: 1.8rem; cursor: pointer; padding: 0; margin: 0;display: flex;align-items: center;}
 
             /* 4. Dropdown Attachment Fix */
             #mobile-menu-list {
@@ -100,10 +100,10 @@
                 margin: 0;
                 background-color: #064e3b;
                 position: absolute;
-                top: 50px; /* Aligns exactly with mobile-top-bar height */
+                top: 60px; /* Aligns exactly with mobile-top-bar height */
                 left: 0;
                 width: 100%;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                
             }
 
             #mobile-menu-list.show { display: block; }
