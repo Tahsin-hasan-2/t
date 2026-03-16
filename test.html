@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দোয়া ও বিধান | মিসবাহ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF8E7;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            background-color: #064e3b;
+            padding: 0.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-left,
+        .nav-right {
+            flex: 1;
+        }
+
+        .nav-center {
+            flex: 2;
+            text-align: center;
+        }
+
+        .nav-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .logo {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bismillah {
+            color: #fbbf24;
+            font-weight: bold;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Mobile Menu Toggle Button (Hidden on Desktop) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fbbf24;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Standard Desktop Menu */
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 15px;
+            position: relative;
+            padding: 10px 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #d4af37;
+            color: #064e3b;
+        }
+
+        /* --- DROPDOWN MENU --- */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #064e3b;
+            min-width: 180px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 0 0 12px 12px;
+            padding: 0;
+            z-index: 1001;
+            border: 1px solid #d4af37;
+            border-top: none;
+            overflow: hidden;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li a {
+            border-radius: 0;
+            padding: 12px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #d4af37;
+            color: #064e3b;
+        }
+
+        /* --- MOBILE RESPONSIVE STYLES --- */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            /* Show Hamburger */
+            .nav-center {
+                display: none;
+            }
+
+            /* Hide Bismillah on tiny mobile screens to save space */
+
+            nav ul {
+                display: none;
+                /* Hide standard list */
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #064e3b;
+                border-bottom: 2px solid #d4af37;
+                padding: 10px 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            /* JavaScript toggles this class */
+
+            nav ul li {
+                margin: 0;
+                padding: 5px 0;
+                text-align: center;
+                width: 100%;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 80%;
+                margin: 0 auto;
+                border-radius: 5px;
+            }
+
+            .dropdown-menu {
+                position: static;
+                /* Make dropdown flow naturally in mobile list */
+                width: 100%;
+                box-shadow: none;
+                background-color: #043a2c;
+                /* Slightly darker for depth */
+            }
+        }
+
+        /* --- CONTENT STYLING --- */
+        .page-header {
+            background-color: #064e3b;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 3px solid #d4af37;
+        }
+
+        .page-header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .master-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 1.5px solid #d4af37;
+            border-radius: 12px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: #064e3b;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .dua-card {
+            margin-bottom: 30px;
+            border-left: 5px solid #d4af37;
+            padding-left: 10px;
+        }
+
+        .section {
+            padding: 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            line-height: 1.6;
+            border: 1px solid #f0f0f0;
+        }
+
+        .arabic-verse {
+            background-color: #ffffff;
+            color: #064e3b;
+            font-size: 1.6rem;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .bangla-translation {
+            background-color: #f4f9f4;
+            color: #064e3b;
+            font-weight: 500;
+        }
+
+        .reference-bar {
+            background-color: #064e3b;
+            color: #fbbf24;
+            text-align: right;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #064e3b;
+            border-top: 4px solid #d4af37;
+        }
+
+        footer p {
+            color: #fbbf24;
+            font-weight: bold;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-left">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <a href="index.html" class="logo">মিসবাহ</a>
+        </div>
+
+        <div class="nav-center">
+            <p class="bismillah">بسم الله الرحمن الرحيم</p>
+        </div>
+
+        <div class="nav-right">
+            <ul id="nav-list">
+                <li><a href="index.html">প্রচ্ছদ</a></li>
+                <li class="dropdown">
+                    <a href="#" class="active" onclick="toggleDropdown(event)">আলোচ্য ▾</a>
+                    <ul class="dropdown-menu" id="mobile-drop">
+                        <li><a href="l.htm">দোয়া ও বিধান</a></li>
+                        <li><a href="#">চরম সত্য</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">উদ্দেশ্য</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>দোয়া ও বিধান সমূহ</h1>
+    </div>
+
+    <div class="master-container">
+        <div class="section-title">📖 নির্বাচিত দোয়া সমূহ:</div>
+
+        <div class="dua-card">
+            <div class="section arabic-verse">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ
+                وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
+            <div class="section bangla-translation">"হে আমাদের পালনকর্তা, আমাদের স্ত্রীদের পক্ষ থেকে এবং আমাদের
+                সন্তানদের পক্ষ থেকে আমাদের জন্যে চোখের শীতলতা দান কর..."</div>
+            <div class="reference-bar">📚 সুরা আল ফুরকান - ৭৪</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>السلام عليكم ورحمة الله وبركاته</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav-list');
+            nav.classList.toggle('show');
+        }
+
+        function toggleDropdown(e) {
+            // Only handle click toggle if on mobile
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const drop = document.getElementById('mobile-drop');
+                drop.style.display = drop.style.display === 'block' ? 'none' : 'block';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
