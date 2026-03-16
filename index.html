@@ -12,15 +12,14 @@
             padding: 0;
             background-color: #FFF8E7;
             color: #333;
-            display: flex;
-            flex-direction: column;
             min-height: 100vh;
         }
 
         /* --- DESKTOP NAVIGATION --- */
         nav {
             background-color: #064e3b;
-            padding: 0.8rem 1.5rem;
+            padding: 0rem 1.5rem; /* reduced height */
+            height: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -30,65 +29,17 @@
             z-index: 1000;
         }
 
-        .nav-left,
-        .nav-right {
-            flex: 1;
-        }
+        .nav-left, .nav-right { flex: 1; }
+        .nav-center { flex: 2; text-align: center; }
+        .nav-right ul { justify-content: flex-end; }
 
-        .nav-center {
-            flex: 2;
-            text-align: center;
-        }
+        .bismillah { color: #fbbf24; font-weight: bold; margin: 0; font-size: 1.2rem; }
+        nav .logo { color: #fbbf24; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
 
-        .nav-right ul {
-            justify-content: flex-end;
-        }
-
-        .bismillah {
-            color: #fbbf24;
-            font-weight: bold;
-            margin: 0;
-            font-size: 1.2rem;
-        }
-
-        nav .logo {
-            color: #fbbf24;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            align-items: center;
-        }
-
-        nav ul li {
-            margin-left: 15px;
-            position: relative;
-            padding: 10px 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 8px 10px;
-            border-radius: 40px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: 500;
-        }
-
-        nav ul li a:hover,
-        nav ul li a.active {
-            background-color: #d4af37;
-            color: #064e3b;
-        }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
+        nav ul li { margin-left: 15px; position: relative; padding: 10px 0; }
+        nav ul li a { color: white; text-decoration: none; transition: all 0.3s ease; padding: 8px 10px; border-radius: 40px; display: flex; align-items: center; gap: 4px; font-weight: 500; }
+        nav ul li a:hover, nav ul li a.active { background-color: #d4af37; color: #064e3b; }
 
         .dropdown-menu {
             display: none;
@@ -102,33 +53,15 @@
             z-index: 1001;
             overflow: hidden;
         }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu li {
-            width: 100%;
-            padding: 0;
-            margin: 0;
-        }
-
-        .dropdown-menu li a {
-            border-radius: 0;
-            padding: 12px 20px;
-            display: block;
-        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu li { width: 100%; padding: 0; margin: 0; }
+        .dropdown-menu li a { border-radius: 0; padding: 12px 20px; display: block; }
 
         /* --- MOBILE NAVIGATION --- */
-        .mobile-nav {
-            display: none;
-        }
+        .mobile-nav { display: none; }
 
         @media (max-width: 768px) {
-
-            nav {
-                display: none !important;
-            }
+            nav { display: none !important; }
 
             .mobile-nav {
                 display: block !important;
@@ -143,44 +76,16 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 0 15px;
+                padding: 0 10px;
                 height: 60px;
             }
 
-            .m-left,
-            .m-right {
-                flex: 1;
-            }
+            .m-left, .m-right { flex: 1; }
+            .m-center { flex: 1; text-align: center; }
+            .m-right { display: flex; justify-content: flex-end; }
 
-            .m-center {
-                flex: 1;
-                text-align: center;
-            }
-
-            .m-right {
-                display: flex;
-                justify-content: flex-end;
-            }
-
-            .mobile-bismillah {
-                color: #fbbf24;
-                font-weight: bold;
-                font-size: 1.2rem;
-                margin: 0;
-                padding: 0;
-            }
-
-            .hamburger {
-                background: none;
-                border: none;
-                color: #fbbf24;
-                font-size: 1.8rem;
-                cursor: pointer;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                align-items: center;
-            }
+            .mobile-bismillah { color: #fbbf24; font-weight: bold; font-size: 1.2rem; margin: 0; padding: 0; }
+            .hamburger { background: none; border: none; color: #fbbf24; font-size: 1.8rem; cursor: pointer; padding: 0; margin: 0; display: flex; align-items: center;}
 
             #mobile-menu-list {
                 display: none;
@@ -194,59 +99,15 @@
                 width: 100%;
             }
 
-            #mobile-menu-list.show {
-                display: block;
-            }
-
-            #mobile-menu-list li a {
-                color: white;
-                text-decoration: none;
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            }
-
-            .mobile-sub-menu {
-                background-color: #043a2c;
-                display: none;
-                list-style: none;
-                padding: 0;
-                padding-left: 20px;
-            }
+            #mobile-menu-list.show { display: block; }
+            #mobile-menu-list li a { color: white; text-decoration: none; display: block; padding: 15px 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+            .mobile-sub-menu { background-color: #043a2c; display: none; list-style: none; padding: 0; padding-left: 20px; }
         }
 
         /* --- PAGE CONTENT --- */
-        .header {
-            border: 2px solid #d4af37;
-            background: url('k.jpg') center/cover;
-            border-radius: 20px;
-            padding: 40px 20px;
-            width: 90%;
-            max-width: 1000px;
-            margin: 20px auto;
-            color: white;
-            text-align: center;
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        .master-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border: 1.5px solid #d4af37;
-            border-radius: 15px;
-            flex: 1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #064e3b;
-            color: white;
-            margin-top: 50px;
-        }
+        .header { border: 2px solid #d4af37; background: url('k.jpg') center/cover; border-radius: 20px; padding: 40px 20px; width: 90%; max-width: 1000px; margin: 20px auto; color: white; text-align: center; font-size: 3rem; font-weight: bold; }
+        .master-container { max-width: 1000px; margin: 40px auto; padding: 30px; background-color: white; border: 1.5px solid #d4af37; border-radius: 15px; }
+        footer { text-align: center; padding: 20px; background: #064e3b; color: white; margin-top: 50px; }
     </style>
 </head>
 
@@ -256,15 +117,12 @@
     <div class="nav-left">
         <a href="/index.html" class="logo">মিসবাহ</a>
     </div>
-
     <div class="nav-center">
         <p class="bismillah">بسم الله الرحمن الرحيم</p>
     </div>
-
     <div class="nav-right">
         <ul>
             <li><a href="/index.html">প্রচ্ছদ</a></li>
-
             <li class="dropdown">
                 <a href="#" class="active">আলোচ্য</a>
                 <ul class="dropdown-menu">
@@ -272,7 +130,6 @@
                     <li><a href="#">চরম সত্য</a></li>
                 </ul>
             </li>
-
             <li><a href="#">উদ্দেশ্য</a></li>
         </ul>
     </div>
@@ -284,10 +141,8 @@
         <div class="m-center"><p class="mobile-bismillah">بسم الله</p></div>
         <div class="m-right"><button class="hamburger" onclick="toggleMobileMenu()">☰</button></div>
     </div>
-
     <ul id="mobile-menu-list">
         <li><a href="#">প্রচ্ছদ</a></li>
-
         <li>
             <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
             <ul class="mobile-sub-menu" id="mobile-sub">
@@ -295,7 +150,6 @@
                 <li><a href="#">চরম সত্য</a></li>
             </ul>
         </li>
-
         <li><a href="#">উদ্দেশ্য</a></li>
     </ul>
 </nav>
@@ -308,26 +162,18 @@
     <div class="section-title">📖 নির্বাচিত দোয়া সমূহ:</div>
 
     <div class="dua-card">
-        <div class="section arabic-verse">
-            رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا
-        </div>
-
-        <div class="section english-translation">
-            "Our Lord, grant us from among our wives and offspring comfort to our eyes..."
-        </div>
-
-        <div class="section bangla-translation">
-            "হে আমাদের পালনকর্তা, আমাদের স্ত্রীদের পক্ষ থেকে এবং আমাদের সন্তানদের পক্ষ থেকে আমাদের জন্যে চোখের শীতলতা দান কর..."
-        </div>
-
+        <div class="section arabic-verse">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ
+            وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
+        <div class="section english-translation">"Our Lord, grant us from among our wives and offspring comfort to
+            our eyes..."</div>
+        <div class="section bangla-translation">"হে আমাদের পালনকর্তা, আমাদের স্ত্রীদের পক্ষ থেকে এবং আমাদের
+            সন্তানদের পক্ষ থেকে আমাদের জন্যে চোখের শীতলতা দান কর..."</div>
         <div class="reference-bar">📚 সুরা আল ফুরকান - ৭৪</div>
     </div>
 </div>
 
 <footer>
-<p style="color: gold; font-weight: bold; margin: 0;">
-السلام عليكم ورحمة الله وبركاته
-</p>
+<p style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
 </footer>
 
 <script>
@@ -335,13 +181,11 @@ function toggleMobileMenu() {
     var menu = document.getElementById('mobile-menu-list');
     menu.classList.toggle('show');
 }
-
 function toggleMobileSub(e) {
     e.preventDefault();
     var sub = document.getElementById('mobile-sub');
     sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
 }
-
 window.onclick = function(event) {
     if (!event.target.matches('.hamburger') && !event.target.closest('#mobile-menu-list')) {
         var menu = document.getElementById('mobile-menu-list');
