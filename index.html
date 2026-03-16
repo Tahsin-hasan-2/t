@@ -45,85 +45,122 @@
         }
         .desktop-nav ul li a:hover, .desktop-nav ul li a.active { background-color: #d4af37; color: #064e3b; }
 
-        /* Desktop Dropdown */
+        /* The Dropdown Menu */
         .dropdown-menu {
             display: none;
             position: absolute;
+            /* Attached directly to the bottom of the nav bar */
             top: 100%;
             left: 0;
             background-color: #064e3b;
+            /* Matches your nav green */
             min-width: 180px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+            /* Rounded bottom corners only */
+            padding: 0;
             z-index: 1001;
-        }
-        .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu li { width: 100%; margin: 0; }
-        .dropdown-menu li a { border-radius: 0 !important; padding: 12px 20px !important; display: block; }
 
+            border-top: none;
+            /* Keeps it looking attached to the nav */
+            overflow: hidden;
+            /* Ensures the hover gold color doesn't bleed out */
+        }
+
+        /* Hover effect on the parent <li> */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            display: block;
+            width: 100%;
+            padding: 0;
+            /* Remove padding from li to make links full-width */
+        }
+
+        .dropdown-menu li a {
+            border-radius: 0;
+            padding: 12px 20px;
+            display: block;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        /* Hover effect inside the dropdown - Matches your yellow/gold theme */
+        .dropdown-menu li a:hover {
+            background-color: #d4af37;
+            color: #064e3b;
+        }
         /* --- MOBILE NAVIGATION --- */
-        .mobile-nav { display: none; } /* Hidden on desktop */
+    .mobile-nav { display: none; }
 
-        @media (max-width: 768px) {
-            .desktop-nav { display: none !important; } /* Force hide desktop */
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: block !important;
+        background-color: #064e3b;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 2px solid #d4af37;
+    }
 
-            .mobile-nav {
-                display: block !important; /* Force show mobile */
-                background-color: #064e3b;
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                border-bottom: 2px solid #d4af37;
-            }
+    .mobile-top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+    }
 
-            .mobile-top-bar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 12px 20px;
-            }
+    /* Flex containers to ensure perfect centering */
+    .m-left, .m-right { flex: 1; }
+    .m-center { flex: 1; text-align: center; }
+    .m-right { display: flex; justify-content: flex-end; }
 
-            .hamburger {
-                background: none;
-                border: none;
-                color: #fbbf24;
-                font-size: 1.8rem;
-                cursor: pointer;
-                padding: 0;
-            }
+    .mobile-bismillah {
+        color: #fbbf24;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0;
+        white-space: nowrap;
+    }
 
-            .mobile-bismillah-bar {
-                background-color: #043a2c;
-                text-align: center;
-                padding: 10px 0;
-                border-top: 1px solid rgba(212, 175, 55, 0.2);
-            }
+    .hamburger {
+        background: none;
+        border: none;
+        color: #fbbf24;
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0;
+    }
 
-            .mobile-bismillah-bar .bismillah { font-size: 1.1rem; }
+    #mobile-menu-list {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: #064e3b;
+    }
 
-            #mobile-menu-list {
-                display: none;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                background-color: #064e3b;
-            }
+    #mobile-menu-list.show { display: block; }
 
-            #mobile-menu-list.show { display: block; }
-            #mobile-menu-list li a {
-                color: white;
-                text-decoration: none;
-                display: block;
-                padding: 15px 20px;
-                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-            }
+    #mobile-menu-list li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
 
-            .mobile-sub-menu {
-                background-color: #043a2c;
-                display: none;
-                list-style: none;
-                padding: 0;
-            }
-        }
+    .mobile-sub-menu {
+        background-color: #043a2c;
+        display: none;
+        list-style: none;
+        padding: 0;
+    }
+}
 
         /* --- PAGE CONTENT --- */
         .header {
@@ -164,7 +201,7 @@
 <body>
 
     <nav class="desktop-nav">
-        <div class="nav-left">
+       <div class="nav-left">
             <a href="/index.html" class="logo">মিসবাহ</a>
         </div>
         <div class="nav-center">
@@ -174,37 +211,46 @@
             <ul>
                 <li><a href="/index.html">প্রচ্ছদ</a></li>
                 <li class="dropdown">
-                    <a href="#" class="active">আলোচ্য ▾</a>
+                    <a href="#" class="active">আলোচ্য</a>
                     <ul class="dropdown-menu">
                         <li><a href="/sub/db.html">দোয়া ও বিধান</a></li>
                         <li><a href="#">চরম সত্য</a></li>
+
                     </ul>
                 </li>
                 <li><a href="#">উদ্দেশ্য</a></li>
+
             </ul>
         </div>
     </nav>
 
-    <nav class="mobile-nav">
-        <div class="mobile-top-bar">
+   <nav class="mobile-nav">
+    <div class="mobile-top-bar">
+        <div class="m-left">
             <a href="index.html" class="logo">মিসবাহ</a>
+        </div>
+        
+        <div class="m-center">
+            <p class="mobile-bismillah">بسم الله</p>
+        </div>
+
+        <div class="m-right">
             <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
         </div>
-        <div class="mobile-bismillah-bar">
-            <p class="bismillah">بسم الله </p>
-        </div>
-        <ul id="mobile-menu-list">
-            <li><a href="index.html">প্রচ্ছদ</a></li>
-            <li>
-                <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
-                <ul class="mobile-sub-menu" id="mobile-sub">
-                    <li><a href="/sub/db.html">দোয়া ও বিধান</a></li>
-                    <li><a href="#">চরম সত্য</a></li>
-                </ul>
-            </li>
-            <li><a href="#">উদ্দেশ্য</a></li>
-        </ul>
-    </nav>
+    </div>
+
+    <ul id="mobile-menu-list">
+        <li><a href="index.html">প্রচ্ছদ</a></li>
+        <li>
+            <a href="#" onclick="toggleMobileSub(event)">আলোচ্য ▾</a>
+            <ul class="mobile-sub-menu" id="mobile-sub">
+                <li><a href="/sub/db.html">দোয়া ও বিধান</a></li>
+                <li><a href="#">চরম সত্য</a></li>
+            </ul>
+        </li>
+        <li><a href="#">উদ্দেশ্য</a></li>
+    </ul>
+</nav>
 
     <div class="header">দোয়া</div>
 
