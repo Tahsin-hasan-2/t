@@ -17,10 +17,10 @@
             min-height: 100vh;
         }
 
-        /* --- DESKTOP NAVIGATION --- */
-        .desktop-nav {
+        /* Navigation Bar */
+        nav {
             background-color: #064e3b;
-            padding: 10px 1.5rem;
+            padding: 0.8rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -28,22 +28,81 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            /* Height removed to allow content to fit */
+            height: 30px;
+
         }
 
-        .nav-left, .nav-right { flex: 1; }
-        .nav-center { flex: 2; text-align: center; }
 
-        .logo { color: #fbbf24; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
-        .bismillah { color: #fbbf24; font-weight: bold; margin: 0; font-size: 1.2rem; }
-
-        .desktop-nav ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; justify-content: flex-end; }
-        .desktop-nav ul li { margin-left: 15px; position: relative; }
-        .desktop-nav ul li a { 
-            color: white; text-decoration: none; padding: 8px 18px; 
-            border-radius: 40px; font-weight: 500; transition: 0.3s; 
+        /* Ensure all three sections take up roughly equal space for true centering */
+        .nav-left,
+        .nav-right {
+            flex: 1;
         }
-        .desktop-nav ul li a:hover, .desktop-nav ul li a.active { background-color: #d4af37; color: #064e3b; }
+
+        .nav-center {
+            flex: 2;
+            /* Gives the center text more room to breathe */
+            text-align: center;
+        }
+
+        .nav-right ul {
+            justify-content: flex-end;
+            /* Keeps links pinned to the right side */
+        }
+
+        .bismillah {
+            color: #fbbf24;
+            /* Gold color from your design */
+            font-weight: bold;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        nav .logo {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 15px;
+            position: relative;
+            /* FIXED: Anchors dropdown to the button */
+            padding: 10px 0;
+            /* Creates a hover bridge so menu doesn't disappear */
+        }
+
+        /* Navigation Link Styling */
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 10px;
+            border-radius: 40px;
+            /* Creates the rounded pill shape */
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 500;
+        }
+
+        /* Active and Hover State */
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #d4af37;
+            /* The gold background from your image */
+            color: #064e3b;
+            /* Dark green text for contrast */
+        }
 
         /* The Dropdown Menu */
         .dropdown-menu {
@@ -94,8 +153,114 @@
             background-color: #d4af37;
             color: #064e3b;
         }
-        /* --- MOBILE NAVIGATION --- */
-    .mobile-nav { display: none; }
+
+        /* --- SIMPLE HEADER TITLE --- */
+        .header {
+            /* THE BORDER: thickness | style | color */
+            border: 2px solid #d4af37;
+
+            /* Background and Shape */
+            /* background-color: #147a3e; */
+            background: url('k.jpg') center/cover;
+            border-radius: 20px;
+            /* Slightly more rounded for the larger size */
+
+            /* BIGGER CONTAINER: Increase padding for more internal space */
+            padding: 40px 20px;
+
+            /* Optional: Controls how wide the header can get */
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            /* Centers the container on the page */
+
+            /* BIGGER FONT */
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-size: 4rem;
+            /* Significant increase in size */
+            font-weight: bold;
+            letter-spacing: 1px;
+            /* Adds a clean, professional look to the text */
+        }
+
+        /* --- DUA CONTENT SECTION --- */
+        .master-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: white;
+            border: 1.5px solid #d4af37;
+            border-radius: 15px;
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #064e3b;
+            margin-bottom: 25px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dua-card {
+            margin-bottom: 40px;
+            border-left: 5px solid #e1be4c;
+            padding-left: 15px;
+        }
+
+        .section {
+            padding: 18px 25px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            line-height: 1.8;
+            border: 1px solid #f0f0f0;
+        }
+
+        .arabic-verse {
+            background-color: #ffffff;
+            color: #064e3b;
+            font-size: 1.8rem;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .english-translation {
+            background-color: #f8f9fa;
+            color: #555;
+            font-style: italic;
+        }
+
+        .bangla-translation {
+            background-color: #f4f9f4;
+            color: #064e3b;
+            font-weight: 500;
+        }
+
+        .reference-bar {
+            background-color: #064e3b;
+            color: #fbbf24;
+            text-align: right;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 12px 20px;
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #064e3b;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+
+
+.mobile-nav { display: none; }
 
 @media (max-width: 768px) {
     .mobile-nav {
@@ -161,47 +326,13 @@
         padding: 0;
     }
 }
-
-        /* --- PAGE CONTENT --- */
-        .header {
-            border: 2px solid #d4af37;
-            background-color: #064e3b;
-            background: url('k.jpg') center/cover;
-            border-radius: 20px;
-            padding: 40px 20px;
-            width: 90%;
-            max-width: 1000px;
-            margin: 20px auto;
-            color: white;
-            text-align: center;
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        .master-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: white;
-            border: 1.5px solid #d4af37;
-            border-radius: 15px;
-            flex: 1;
-        }
-
-        .dua-card { margin-bottom: 40px; border-left: 5px solid #e1be4c; padding-left: 15px; }
-        .section { padding: 18px 25px; margin-bottom: 10px; border-radius: 10px; line-height: 1.8; border: 1px solid #f0f0f0; }
-        .arabic-verse { font-size: 1.8rem; text-align: right; direction: rtl; color: #064e3b; }
-        .bangla-translation { background-color: #f4f9f4; color: #064e3b; font-weight: 500; }
-        .reference-bar { background-color: #064e3b; color: #fbbf24; text-align: right; font-weight: bold; border-radius: 8px; padding: 12px 20px; }
-
-        footer { text-align: center; padding: 20px; background: #064e3b; margin-top: 50px; border-top: 2px solid #d4af37; }
-    </style>
+    
 </head>
 
 <body>
 
-    <nav class="desktop-nav">
-       <div class="nav-left">
+    <nav>
+        <div class="nav-left">
             <a href="/index.html" class="logo">মিসবাহ</a>
         </div>
         <div class="nav-center">
@@ -224,7 +355,7 @@
         </div>
     </nav>
 
-   <nav class="mobile-nav">
+    <nav class="mobile-nav">
     <div class="mobile-top-bar">
         <div class="m-left">
             <a href="index.html" class="logo">মিসবাহ</a>
@@ -252,35 +383,75 @@
     </ul>
 </nav>
 
-    <div class="header">দোয়া</div>
-
+    <div class="header">
+        দোয়া
+    </div>
     <div class="master-container">
+        <div class="section-title">📖 নির্বাচিত দোয়া সমূহ:</div>
+
         <div class="dua-card">
-            <div class="section arabic-verse">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
-            <div class="section bangla-translation">"হে আমাদের পালনকর্তা, আমাদের স্ত্রীদের পক্ষ থেকে এবং আমাদের সন্তানদের পক্ষ থেকে আমাদের জন্যে চোখের শীতলতা দান কর..."</div>
+            <div class="section arabic-verse">رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ
+                وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا</div>
+            <div class="section english-translation">"Our Lord, grant us from among our wives and offspring comfort to
+                our eyes..."</div>
+            <div class="section bangla-translation">"হে আমাদের পালনকর্তা, আমাদের স্ত্রীদের পক্ষ থেকে এবং আমাদের
+                সন্তানদের পক্ষ থেকে আমাদের জন্যে চোখের শীতলতা দান কর..."</div>
             <div class="reference-bar">📚 সুরা আল ফুরকান - ৭৪</div>
         </div>
     </div>
 
     <footer>
-        <p style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
+
+        <p class="text" style="color: gold; font-weight: bold; margin: 0;">السلام عليكم ورحمة الله وبركاته</p>
     </footer>
 
+
+
     <script>
-        function toggleMobileMenu() {
-            var menu = document.getElementById('mobile-menu-list');
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
+    /**
+     * Toggles the main mobile menu visibility
+     */
+    function toggleMobileMenu() {
+        const menuList = document.getElementById('mobile-menu-list');
+        
+        // Toggle the 'show' class which controls display in CSS
+        if (menuList.classList.contains('show')) {
+            menuList.classList.remove('show');
+            menuList.style.display = 'none';
+        } else {
+            menuList.classList.add('show');
+            menuList.style.display = 'block';
+        }
+    }
+
+    /**
+     * Toggles the sub-menu (dropdown) for mobile specifically
+     * @param {Event} e - The click event to prevent default link behavior
+     */
+    function toggleMobileSub(e) {
+        e.preventDefault(); // Stop the '#' link from jumping the page
+        const subMenu = document.getElementById('mobile-sub');
+        
+        // Toggle display between none and block
+        if (subMenu.style.display === 'block') {
+            subMenu.style.display = 'none';
+        } else {
+            subMenu.style.display = 'block';
+        }
+    }
+
+    // Close mobile menu if user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.hamburger')) {
+            const menuList = document.getElementById('mobile-menu-list');
+            if (menuList.classList.contains('show')) {
+                menuList.classList.remove('show');
+                menuList.style.display = 'none';
             }
         }
-        function toggleMobileSub(e) {
-            e.preventDefault();
-            var sub = document.getElementById('mobile-sub');
-            sub.style.display = sub.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
+    }
+</script>
+
 </body>
 
 </html>
